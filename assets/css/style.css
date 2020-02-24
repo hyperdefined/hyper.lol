@@ -1,0 +1,85 @@
+/* 
+
+This is mostly from hexdefined.xyz
+
+*/ 
+
+@font-face {
+    font-family: 'Chocolate';
+    src: url('painting_with_chocolate-webfont.woff2') format('woff2'), url('painting_with_chocolate-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+ html, body {
+    height: 100%;
+}
+ body {
+    background: #202020;
+    color: #808080;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align: center;
+}
+ .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    padding: 1em;
+    position: relative;
+    z-index: 1;
+}
+ p {
+    margin: 1em 0;
+}
+img {
+    display: block;
+    width: 220px;
+    height: 220px;
+    margin: 1em auto;
+    border-radius: 100%;
+}
+ .username {
+    display: block;
+    color: white;
+    font-family: Chocolate;
+    font-size: 10vw;
+}
+ .social {
+    display: inline-block;
+    padding: 0;
+    list-style: none;
+    line-height: 0;
+}
+ .social li {
+    display: inline-block;
+}
+ .social li a {
+    display: inline-block;
+}
+ a {
+    text-decoration: none;
+    color: #808080;
+}
+ a:hover {
+    text-decoration: none;
+    color: #cecece;
+}
+
+#particles-js {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}

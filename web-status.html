@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+        <title>Web Stats - hyperdefined</title>
+        <meta name="description" content="hyperdefined's website">
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:site" content="@hyperdefined"/>
+        <meta name="twitter:creator" content="@hyperdefined"/>
+        <meta property="og:url" content="https://hyper.lol/"/>
+        <meta property="og:title" content="hyperdefined"/>
+        <meta property="og:description" content="hyperdefined's site."/>
+      
+      
+        <link rel="stylesheet" href="https://hyper.lol/assets/css/style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link rel="stylesheet" href="https://hyper.lol/assets/css/bootstrap.min.css"/>
+        
+        <link rel="canonical" href="https://hyper.lol/"/>
+        
+        <link rel="icon" href="https://hyper.lol/assets/img/profile_picture.png" type="image/gif" >
+        
+        <style>
+        .jumbotron
+        {
+            background-color: #1D2942;
+            padding-bottom: 34px;
+            padding-top: 32px;
+        }
+        
+        body
+        {
+            color: #fff;
+            font-family: 'Fira Code', monospace;
+            background-color: #0F1521;
+        }
+        
+        a:link, a:visited
+        {
+            text-decoration: none;
+            color: #5679C4;
+        }
+        
+        a:hover
+        {
+            color: #6F9BFC;
+        }
+        
+        ul > li
+        {
+            margin-left: 30px;
+        }
+        
+        h4
+        {
+            padding-top: 15px;
+        }
+        
+        h1
+        {
+            padding-bottom: 25px;
+        }
+        
+        .netdata-badge
+        {
+            width: auto;
+            height: auto;
+            border-radius: 0%;
+            display: inline;
+        }
+        
+        
+        </style>
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152054297-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-152054297-1');
+        </script>
+
+        
+    </head>
+    <body>
+    <div class="container">
+        <div class="jumbotron">
+            <img src="https://hyper.lol/assets/img/profile_picture.png" class="img-thumbnail">
+            <h1 class="text-center">Web Stats</h1>
+                <h4>hyperbox</h4>
+                <p>hyperbox mainly runs small websites, including this one.</p>
+                <img class="netdata-badge" src="https://hyperbox.hyper.lol/api/v1/badge.svg?chart=system.cpu"></img>
+                <img class="netdata-badge" src="https://hyperbox.hyper.lol/api/v1/badge.svg?chart=system.load"></img>
+                <img class="netdata-badge" src="https://hyperbox.hyper.lol/api/v1/badge.svg?chart=system.ram"></img>
+                <img class="netdata-badge" src="https://hyperbox.hyper.lol/api/v1/badge.svg?chart=system.uptime"></img>
+                <img class="netdata-badge" src="https://hyperbox.hyper.lol/api/v1/badge.svg?chart=web_log_nginx.response_statuses&label=nginx.responses"></img>
+                <h4>hyperion</h4>
+                <p>hyperion runs a Minecraft server (<a href="https://destroymc.net">destroymc.net</a>) and a few websites.</p>
+                <img class="netdata-badge" src="https://hyperion.hyper.lol/api/v1/badge.svg?chart=system.cpu"></img>
+                <img class="netdata-badge" src="https://hyperion.hyper.lol/api/v1/badge.svg?chart=system.load"></img>
+                <img class="netdata-badge" src="https://hyperion.hyper.lol/api/v1/badge.svg?chart=system.ram"></img>
+                <img class="netdata-badge" src="https://hyperion.hyper.lol/api/v1/badge.svg?chart=system.uptime"></img>
+                <img class="netdata-badge" src="https://hyperion.hyper.lol/api/v1/badge.svg?chart=web_log_nginx.response_statuses&label=nginx.responses"></img>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>
+        var NETDATA_BADGES_AUTOREFRESH_SECONDS = 3;
+        function refreshNetdataBadges() {
+          var now = new Date().getTime().toString();
+          $('.netdata-badge').each(function() {
+            this.src = this.src.replace(/\&_=\d*/, '') + '&_=' + now;
+          });
+          setTimeout(refreshNetdataBadges, NETDATA_BADGES_AUTOREFRESH_SECONDS * 1000);
+        }
+        setTimeout(refreshNetdataBadges, NETDATA_BADGES_AUTOREFRESH_SECONDS * 1000);
+    </script>
+    </body>
+</html>
