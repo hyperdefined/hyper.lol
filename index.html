@@ -1,105 +1,37 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+---
+layout: default
+title: Home
+---
 
-        <title>hyperdefined</title>
-        <meta name="description" content="hyperdefined's website">
-        <meta name="twitter:card" content="summary"/>
-        <meta name="twitter:site" content="@hyperdefined"/>
-        <meta name="twitter:creator" content="@hyperdefined"/>
-        <meta property="og:url" content="https://hyper.lol/"/>
-        <meta property="og:title" content="hyperdefined"/>
-        <meta property="og:description" content="hyperdefined's site."/>
+<div class="posts">
+  {% for post in paginator.posts %}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h1>
 
+    <span class="post-date">{{ post.date | date_to_string }}</span>
 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {{ post.content }}
+  </div>
+  {% endfor %}
+</div>
 
-        <link rel="canonical" href="https://hyper.lol/"/>
-
-        <link rel="icon" href="https://hyper.lol/assets/img/profile_picture.png" type="image/gif" >
-
-        <style>
-        body
-        {
-            color: #d0d3d9;
-            font-family: 'Fira Code', monospace;
-            background-color: #101010;
-        }
-
-        a:link, a:visited
-        {
-            text-decoration: none;
-            color: #5679C4;
-        }
-
-        a:hover
-        {
-            color: #6F9BFC;
-        }
-
-        ul > li
-        {
-            margin-left: 30px;
-        }
-
-        h4
-        {
-            padding-top: 30px;
-            color: #58f;
-            font-weight: bold;
-        }
-
-        h1
-        {
-            padding-bottom: 25px;
-            color: #58f;
-            font-weight: bold;
-        }
-
-        .container {
-            width: 50%;
-        }
-
-        hr {
-            background-color: white;
-        }
-
-        </style>
-
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152054297-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-152054297-1');
-        </script>
-
-    </head>
-
-    <body>
-    <div class="container">
-            <h1 class="text-center">hyperdefined</h1>
-                <h4>Services</h4> <hr>
-                <ul class="list-group">
-                    <li><a href="https://short.wtf">short.wtf</a></li>
-                    <li><a href="https://paste.hyper.lol">paste.hyper.lol</a></li>
-                </ul>
-                <h4>Minecraft Servers</h4> <hr>
-                <ul class="list-group">
-                    <li><a href="https://destroymc.net">destroymc.net</a></li>
-                </ul>
-                <h4>Contact</h4> <hr>
-                <ul class="list-group">
-                    <li><a href="https://reddit.com/user/hyperdefined">/u/hyperdefined</a></li>
-                    <li><a href="mailto:hyper@destroymc.net">hyper@destroymc.net</a></li>
-                    <li><a href="https://keybase.io/deactivated">keybase</a></li>
-                </ul>
-    </div>
-    </body>
-</html>
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
+  {% else %}
+    <span class="pagination-item older">Older</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
+    {% else %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
+    {% endif %}
+  {% else %}
+    <span class="pagination-item newer">Newer</span>
+  {% endif %}
+</div>
